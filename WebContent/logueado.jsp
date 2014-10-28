@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="img/icono.ico" type="image/x-icon">
     <title>CRIMELOC</title>
-    <link rel="stylesheet" href="css/foundation.min.css" />
+    <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/crimeloc-core.css" />
     <link rel="stylesheet" href="css/flaticon.css" />
     <script src="js/vendor/modernizr.js"></script>

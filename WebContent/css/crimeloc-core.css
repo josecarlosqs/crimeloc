@@ -5,18 +5,29 @@
 	position: absolute;
 	content: "";
 	display: inline-block;
-	height: 40px;
+	height: 52px;
 	margin-right: 10px;
 	position: relative;
-	width: 40px;
+	width: 52px;
 	top: 2px;
 	left: 0px;
 }
-	
+
+/*	
 .top-bar {
-	height: 45px;
-	line-height: 45px;
+	height: 55px;
+	line-height: 55px;
 	margin-bottom: 0;
+}
+	
+.top-bar>ul.title-area {
+	height: 55px;
+	line-height: 55px;
+}
+	
+.top-bar>section.top-bar-section>ul {
+	height: 55px;
+	line-height: 55px;
 }
 
 .top-bar-section ul {
@@ -24,10 +35,10 @@
 }
  
 .top-bar-section li a:not(.button) {
-	line-height: 45px;
+	line-height: 55px;
 	padding: 0 27px;
 }
-
+*/
 #divMapaReporte{
 	display: block;
 	width: 100%;
