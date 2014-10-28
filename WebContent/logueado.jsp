@@ -29,7 +29,7 @@
     
   </head>
   <body>
-  <div class="row">
+
     <nav class="top-bar" data-topbar role="navigation"  data-options="is_hover: false">
     	
     	 <ul class="title-area">
@@ -74,20 +74,15 @@
 
     </nav>
     
-    </div>
-    
-    <div class="row">
-    
+
      <div id="divMapaReporte"></div>
-    
-    </div>
     
     <div id="creditos" class="reveal-modal" style="text-align: center;" data-reveal>
     <a class="close-reveal-modal">&#215;</a>
 	  <h2>CRIMELOC v1.0</h2>
 	  <h4 class="subheader">Equipo responsable del desarrollo:</h4>
-	  <center>
-	  <table>
+
+	  <table style="margin: auto;">
 		  <thead>
 		    <tr>
 		      <th>Nombres</th>
@@ -129,7 +124,7 @@
 		    </tr>
 		  </tbody>
 		</table>
-		</center>
+
 	  <h4 class="subheader">Creditos extra:</h4>
 	  
 	  <div>Iconos dise&ntilde;ados por Freepik, SimpleIcon, obtenidos desde <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> | Licencia <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
