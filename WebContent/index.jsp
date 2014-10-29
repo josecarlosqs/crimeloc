@@ -12,20 +12,13 @@
     <link rel="stylesheet" href="css/flaticon.css" />
     <script src="js/vendor/modernizr.js"></script>
     
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <!-- script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script-->
 	<script>
 		var latitud = -12.030202192152053;
 		var longitud = -77.03473452148432;
 		//out.print(request.getParameter("posLat"));
 	</script>
 	<script src="js/mapa-core.js"></script>
-	<style>
-		#divMapaReporte{
-			display: block;
-			/*height: 400px;*/
-			height: 100px;
-		}
-	</style>
     
   </head>
   <body>
@@ -41,6 +34,8 @@
     		<ul class="right">
 	    		<li class="divider"></li>
 	    		<li><a href="#" data-reveal-id="login">INICIAR SESIÓN</a></li>
+	    		<li class="divider"></li>
+	    		<li><a href="#" data-reveal-id="registro">REGISTRATE!</a></li>
 	    		<li class="divider"></li>
 	    		<li><a href="#" data-reveal-id="creditos"><span class="glyph-icon flaticon-copyright2">&nbsp;</span></a></li>
 	    		
@@ -123,33 +118,15 @@
 	
 	
 	<div id="login" class="reveal-modal" data-reveal>
-	<a class="close-reveal-modal">&#215;</a>
-	<p class="lead">Autenticarme</p>
-	<form>
-	  <div class="row">
-	    <div class="small-6 large-centered columns">
-	      <label>Correo
-	        <input type="text" placeholder="usuario@ejemplo.com" />
-	      </label>
-	    </div>
-	    
-	    <div class="small-6 large-centered columns">
-	      <label>Clave
-	        <input type="password" />
-	      </label>
-	    </div>
-	    <div class="small-6 large-centered columns">
-	      <input class="button 4" type="submit" value="INICIAR SESION" />
-	    </div>
-	  </div>
-	</form>
-	
-	<hr>
-	
-	<p>¿No tienes cuenta?</p>
-	<a class="button" href="#">REGISTRATE!</a>
-	 
+		<div id="contenido"></div>		
 	</div>
+	
+	
+
+	<div id="registro" class="reveal-modal" data-reveal>
+		<div id="contenido"></div>
+	</div>
+
     
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>

@@ -1,4 +1,4 @@
-var map;
+/*var map;
 var markers = [];
 
 function initialize() {
@@ -17,6 +17,8 @@ function initialize() {
 
   addMarker(centro);
 }
+
+
 
 function addMarker(location) {
   var marker = new google.maps.Marker({
@@ -47,3 +49,4 @@ function deleteMarkers() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
+*/
