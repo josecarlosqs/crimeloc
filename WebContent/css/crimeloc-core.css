@@ -12,34 +12,10 @@
 	top: 2px;
 	left: 0px;
 }
-
-/*	
-.top-bar {
-	height: 55px;
-	line-height: 55px;
-	margin-bottom: 0;
-}
-	
-.top-bar>ul.title-area {
-	height: 55px;
-	line-height: 55px;
-}
-	
-.top-bar>section.top-bar-section>ul {
-	height: 55px;
-	line-height: 55px;
-}
-
-.top-bar-section ul {
-	text-transform: uppercase;
-}
- 
-.top-bar-section li a:not(.button) {
-	line-height: 55px;
-	padding: 0 27px;
-}
-*/
 #divMapaReporte{
 	display: block;
 	width: 100%;
+	background-image: url('../img/carga.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
 }

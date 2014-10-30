@@ -56,7 +56,7 @@ public class Usuario extends HttpServlet {
 			DaoFactory dao = DaoFactory.obtenerFactory(DaoFactory.MYSQL);
 
 			UsuarioDao usuariodao = dao.obtenerUsuarioDao();
-			UsuarioBean usuario2 = usuariodao.validarDatos(usuario);
+			UsuarioBean usuario2 = usuariodao.validarDatosNickName(usuario);
 
 			if (usuario2 == null) {
 				request.setAttribute("mensaje", "Datos incorrectos");
