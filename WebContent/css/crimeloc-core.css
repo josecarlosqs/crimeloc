@@ -12,6 +12,10 @@
 	top: 2px;
 	left: 0px;
 }
+
+.top-bar .has-form * { height: 40px;}
+.alert-box{margin: 0px;}
+
 #divMapaReporte{
 	display: block;
 	width: 100%;

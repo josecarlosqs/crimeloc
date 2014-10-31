@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+<!-- Topbar -->
 	<nav id="barraPrincipal" class="top-bar" data-topbar role="navigation"
 		data-options="is_hover: false">
 
@@ -47,8 +47,8 @@
 							<input type="text" placeholder="Find Stuff">
 						</div>
 						<div class="large-3 small-2 columns">
-							<a href="#" class="alert button expand"><i
-								class="glyph-icon flaticon-magnifier11"></i></a>
+							<button class="alert button expand"><i
+								class="glyph-icon flaticon-magnifier11"></i></button>
 						</div>
 					</div>
 				</li>
@@ -57,8 +57,14 @@
 		</section>
 
 	</nav>
-
+<!-- Div donde se cargara el mapa -->
 	<div id="divMapaReporte"></div>
+
+
+<!-- Pie -->
+<div id="alertas">
+	<div data-alert class="alert-box"> <b>Búsqueda:&nbsp;</b> los flamencos <a href="#" class="close">&times;</a> </div>
+</div>
 
 	<dl id="barraFiltros" class="sub-nav">
 		<dt>Filtrar:</dt>
@@ -66,13 +72,13 @@
 			<a href="#">Todos</a>
 		</dd>
 		<dd>
-			<a href="#">Active</a>
+			<a href="#">Robos</a>
 		</dd>
 		<dd>
-			<a href="#">Pending</a>
+			<a href="#">Prostituci&oacute;n</a>
 		</dd>
 		<dd>
-			<a href="#">Suspended</a>
+			<a href="#">Peleas</a>
 		</dd>
 	</dl>
 
