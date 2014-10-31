@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<nav class="top-bar" data-topbar role="navigation"
+	<nav id="barraPrincipal" class="top-bar" data-topbar role="navigation"
 		data-options="is_hover: false">
 
 		<ul class="title-area">
@@ -58,9 +58,23 @@
 
 	</nav>
 
-
 	<div id="divMapaReporte"></div>
 
+	<dl id="barraFiltros" class="sub-nav">
+		<dt>Filtrar:</dt>
+		<dd class="active">
+			<a href="#">Todos</a>
+		</dd>
+		<dd>
+			<a href="#">Active</a>
+		</dd>
+		<dd>
+			<a href="#">Pending</a>
+		</dd>
+		<dd>
+			<a href="#">Suspended</a>
+		</dd>
+	</dl>
 
 	<div id="creditos" class="reveal-modal" style="text-align: center;"
 		data-reveal>
@@ -139,6 +153,6 @@
 	<script type="text/javascript" src="js/foundation.min.js"></script>
 	<script type="text/javascript" src="js/crimloc-core.js"></script>
 	<script>
-      $(document).foundation();
-    </script>
+		$(document).foundation();
+	</script>
 </html>
