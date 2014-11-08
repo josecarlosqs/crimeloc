@@ -14,16 +14,16 @@ import dao.interfaces.UsuarioDao;
 import daofactory.DaoFactory;
 
 /**
- * Servlet implementation class Usuario
+ * Servlet implementation class Login
  */
-@WebServlet("/Usuario")
-public class Usuario extends HttpServlet {
+@WebServlet("/login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Usuario() {
+	public Login() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -36,9 +36,10 @@ public class Usuario extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sesiones = request.getSession();
 		sesiones.removeAttribute("id_usuario");
-		sesiones.removeAttribute("usuario");
+		sesiones.removeAttribute("nickname");
 		sesiones.invalidate();
 		response.sendRedirect("index.jsp");
+
 	}
 
 	/**
@@ -47,39 +48,65 @@ public class Usuario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+
 		try {
 
 			UsuarioBean usuario = new UsuarioBean();
-			usuario.setNickname(request.getParameter("usuario"));
-			usuario.setClave(request.getParameter("clave"));
 
 			DaoFactory dao = DaoFactory.obtenerFactory(DaoFactory.MYSQL);
 
 			UsuarioDao usuariodao = dao.obtenerUsuarioDao();
-			UsuarioBean usuario2 = usuariodao.validarDatosNickName(usuario);
+
+			boolean esCorreo = false;
+			for (int i = 0; i < request.getParameter("correo").length(); i++) {
+				if (request.getParameter("correo").charAt(i) == '@') {
+					esCorreo = true;
+					break;
+				}
+			}
+
+			UsuarioBean usuario2;
+			usuario.setClave(request.getParameter("clave"));
+			if (esCorreo) {
+				usuario.setCorreo(request.getParameter("correo"));
+				usuario2 = usuariodao.validarDatosCorreo(usuario);
+
+			} else {
+				usuario.setNickname(request.getParameter("correo"));
+				usuario2 = usuariodao.validarDatosNickName(usuario);
+			}
 
 			if (usuario2 == null) {
 				request.setAttribute("mensaje", "Datos incorrectos");
-				getServletContext().getRequestDispatcher("/index.jsp").forward(
-						request, response);
+				getServletContext().getRequestDispatcher("/resultado.jsp")
+						.forward(request, response);
+
 			} else if (usuario2.getEstado()) {
 
 				HttpSession sesiones = request.getSession();
 
 				sesiones.setAttribute("id_usuario", usuario2.getId_usuario());
-				sesiones.setAttribute("usuario", usuario.getNickname());
+				sesiones.setAttribute("nickname", usuario2.getNickname());
+				sesiones.setAttribute("usuario", usuario2.getNickname());
 
-				getServletContext().getRequestDispatcher("/index.jsp").forward(
-						request, response);
+				getServletContext().getRequestDispatcher("/logueado.jsp")
+						.forward(request, response);
+
 			} else {
 
 				request.setAttribute("mensaje", "Usuario se encuentra baneado");
-				getServletContext().getRequestDispatcher("/index.jsp").forward(
-						request, response);
+				getServletContext().getRequestDispatcher("/resultado.jsp")
+						.forward(request, response);
 
 			}
 		} catch (Exception e) {
 			System.out.print(e.getMessage());
+
+			request.setAttribute("mensaje", "Ocurrió un error");
+			getServletContext().getRequestDispatcher("/resultado.jsp").forward(
+					request, response);
+
 		}
 	}
+
 }

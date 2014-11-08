@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <a class="close-reveal-modal">&#215;</a>
 <p class="lead">Registro</p>
-<form name="registro" action="registro" method="post">
+<!-- form name="registro" action="registro" method="post" -->
+<form  action="logueado.jsp">
 	<div class="row">
 		<div class="small-6 large-centered columns">
 			<label>Nickname <input name="txtnickname" type="text"

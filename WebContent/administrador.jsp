@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="css/crimeloc-core.css" />
 <link rel="stylesheet" href="css/flaticon.css" />
 <script src="js/vendor/modernizr.js"></script>
-<script src="js/mapa-core.js"></script>
 
 </head>
 <body>
@@ -28,11 +27,16 @@
 		<section class="top-bar-section">
 			<!-- Derecha -->
 			<ul class="right">
-				<li class="divider"></li>
-				<li><a href="#" data-reveal-id="login">INICIAR SESIÓN</a></li>
-				<li class="divider"></li>
-				<li><a href="#" data-reveal-id="registro">REGISTRATE!</a></li>
-				<li class="divider"></li>
+				<li><a href="#">DENUNCIAR</a></li>
+				<li><a href="#">MIS DENUNCIAS</a></li>
+				<li class="has-dropdown">
+			        <a href="#">USUARIO</a>
+			        <ul class="dropdown">
+			          <li><a href="#">Panel administrativo</a></li>
+			          <li><a href="#">Mi perfil</a></li>
+			          <li><a href="#">Salir</a></li>
+			        </ul>
+			      </li>
 				<li><a href="#" data-reveal-id="creditos"><span
 						class="glyph-icon flaticon-copyright2">&nbsp;</span></a></li>
 
@@ -56,31 +60,63 @@
 
 		</section>
 
-	</nav>
-<!-- Div donde se cargara el mapa -->
-	<div id="divMapaReporte"></div>
+	</nav>		
+<!-- div contenido -->
+
+	<div class="row" style="margin-top: 10px;">
+	
+		<div class="content">
+		<div class="panel" style="text-align: center;">
+		  <h2>Panel de control</h2>
+		</div>
+	
+		<dl class="tabs" data-tab>
+		  <dd class="active"><a href="#tabTabla">Tipo incidentes</a></dd>
+		  <dd><a href="#tabUsuario">Usuario</a></dd>
+		</dl>
+		<div class="tabs-content">
+		  <div class="content active" id="tabTabla">
+		    <!-- Contenido de la pestaña tabla -->
+		    
+		    	<dl class="tabs vertical" data-tab>
+				  <dd class="active"><a href="#panel1">Crear</a></dd>
+				  <dd><a href="#panel2">Modificar</a></dd>
+				  <dd><a href="#panel3">Ver todos</a></dd>
+				</dl>
+				<div class="tabs-content">
+				  <div class="content active" id="panel1">
+				    <p>This is the first panel of the basic tab example. This is the first panel of the basic tab example.</p>
+				  </div>
+				  <div class="content" id="panel2">
+				    <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
+				  </div>
+				  <div class="content" id="panel3">
+				    <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
+				  </div>
+				</div>
+		    
+		    <!-- Fin contenido pestaña tabla -->
+		  </div>
+		  <div class="content" id="tabUsuario">
+		    <!-- Inicio contenido usuarios -->
+		    <!-- Fin contenido usuarios -->
+		  </div>
+		</div>
+	
+	
+	
+	
+	
+	
+	</div>
+	
+	</div>
 
 
 <!-- Pie -->
 <!-- div id="alertas">
 	<div data-alert class="alert-box"> <b>Búsqueda:&nbsp;</b> los flamencos <a href="#" class="close">&times;</a> </div>
 </div -->
-
-	<dl id="barraFiltros" class="sub-nav">
-		<dt>Filtrar:</dt>
-		<dd class="active">
-			<a href="#">Todos</a>
-		</dd>
-		<dd>
-			<a href="#">Robos</a>
-		</dd>
-		<dd>
-			<a href="#">Prostituci&oacute;n</a>
-		</dd>
-		<dd>
-			<a href="#">Peleas</a>
-		</dd>
-	</dl>
 
 	<div id="creditos" class="reveal-modal" style="text-align: center;"
 		data-reveal>
@@ -141,21 +177,7 @@
 		</div>
 	</div>
 
-
-	<div id="login" class="reveal-modal" data-reveal>
-		<div id="contenido"></div>
-	</div>
-
-
-
-	<div id="registro" class="reveal-modal" data-reveal>
-		<div id="contenido"></div>
-	</div>
-
-
 	<script type="text/javascript" src="js/vendor/jquery.js"></script>
-	<script type="text/javascript"
-		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBZSTQse-72aXcpINBGR6Xq145DAW-Ofdk&sensor=SET_TO_TRUE_OR_FALSE"></script>
 	<script type="text/javascript" src="js/foundation.min.js"></script>
 	<script type="text/javascript" src="js/crimloc-core.js"></script>
 	<script>

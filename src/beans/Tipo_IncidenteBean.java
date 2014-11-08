@@ -21,5 +21,8 @@ public class Tipo_IncidenteBean {
 		this.id_tipo_incidente = id_tipo_incidente;
 		this.nomtipo = nomtipo;
 	}
+	public Tipo_IncidenteBean() {
+		// TODO Auto-generated constructor stub
+	}
 	
 }

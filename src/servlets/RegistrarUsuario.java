@@ -1,13 +1,11 @@
 package servlets;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import beans.UsuarioBean;
 import dao.interfaces.UsuarioDao;
 import daofactory.DaoFactory;
@@ -33,7 +31,7 @@ public class RegistrarUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		System.out.print("oliboli");
+
 	}
 
 	/**
@@ -59,29 +57,40 @@ public class RegistrarUsuario extends HttpServlet {
 				a.setCorreo(correo);
 				a.setTipousuario(tipousuario);
 				a.setEstado(estado);
-
 				DaoFactory mysqldao = DaoFactory
 						.obtenerFactory(DaoFactory.MYSQL);
-
 				UsuarioDao usuarioDao = mysqldao.obtenerUsuarioDao();
-				boolean flag = usuarioDao.insertarUsuario(a);
+				if (usuarioDao.validarDatosCorreo(a) == null) {
+					System.out.println("valido correo");
+					if (usuarioDao.validarDatosNickName(a) == null) {
+						System.out.println("valido nickname");
+						boolean flag = usuarioDao.insertarUsuario(a);
+						if (flag) {
+							request.setAttribute("mensaje", "Registrado...");
+						} else {
+							request.setAttribute("mensaje", "Ocurrió un error");
+						}
+						System.out.print("redirecciona a index.jsp");
+						getServletContext().getRequestDispatcher(
+								"/logueado.jsp").forward(request, response);
+					} else {
+						System.out
+								.print("Nickname ya existe, intente con otro");
+					}
 
-				if (flag) {
-					request.setAttribute("mensaje", "Registrado...");
 				} else {
-					request.setAttribute("mensaje", "Ocurrió un error");
+					System.out
+							.print("Correo ya existe registrado en la base de datos intente con otro");
 				}
 
-				getServletContext().getRequestDispatcher("/index.jsp").forward(
-						request, response);
-
 			} else {
-				request.setAttribute("mensaje", "Contraseña icnorreecta");
+				// Si la contraseña ingresada es incorrecta con la segunda
+				request.setAttribute("mensaje", "Contraseña incorrecta");
 			}
 
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.print(e.getMessage());
+			System.out.print("Error en el metodo doPost de RegistrarUsuario");
 		}
 	}
 

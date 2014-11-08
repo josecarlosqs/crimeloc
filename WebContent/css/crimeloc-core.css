@@ -1,3 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+*{
+	font-family: 'Lato', sans-serif;
+}
+
 .top-bar .name h1 a:before {
 	background-image: url('../img/logo.png');
 	background-size: cover;

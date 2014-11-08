@@ -17,21 +17,20 @@ public class MySql_UsuarioDao extends MySQLDaoFactory implements UsuarioDao {
 		try {
 			Connection con = MySQLDaoFactory.obtenerConexion();
 			Statement stmt = con.createStatement();
-			String sql = "insert into usuario (nickname,clave,correo,tipousuario,estado) values ("
+			String sql = "insert into Usuario (nickname,clave,correo,tipousuario,estado) values ("
 					+ "'"
-					+ usuario.getNickname()
+					+ usuario.getNickname().toLowerCase()
 					+ "',"
 					+ "'"
 					+ usuario.getClave()
 					+ "',"
 					+ "'"
-					+ usuario.getCorreo()
+					+ usuario.getCorreo().toLowerCase()
 					+ "',"
 					+ "'"
 					+ usuario.getTipousuario()
 					+ "',"
-					+ usuario.getEstado() + "'" + ")";
-
+					+ usuario.getEstado() +")";
 			int filas = stmt.executeUpdate(sql);
 			if (filas == 1) {
 				// Se pudo agregar el nuevo Usuario
@@ -39,7 +38,8 @@ public class MySql_UsuarioDao extends MySQLDaoFactory implements UsuarioDao {
 			}
 		} catch (Exception e) {
 			// Ocurrio un error en el proceso
-			System.out.print(e.getMessage());
+			System.out.println(e.getMessage());
+
 		}
 		return flag;
 	}
@@ -53,7 +53,7 @@ public class MySql_UsuarioDao extends MySQLDaoFactory implements UsuarioDao {
 		try {
 			Connection con = MySQLDaoFactory.obtenerConexion();
 			Statement stmt = con.createStatement();
-			String sql = "select * from usuario " + " where usuario= '"
+			String sql = "select * from Usuario " + " where nickname= '"
 					+ usuario.getNickname() + "' " + " and clave = '"
 					+ usuario.getClave() + "' ";
 
@@ -95,7 +95,7 @@ public class MySql_UsuarioDao extends MySQLDaoFactory implements UsuarioDao {
 		try {
 			Connection con = MySQLDaoFactory.obtenerConexion();
 			Statement stmt = con.createStatement();
-			String sql = "select * from usuario " + " where id_usuario="
+			String sql = "select * from Usuario " + " where id_usuario="
 					+ id_usuario;
 
 			ResultSet rs = stmt.executeQuery(sql);
@@ -123,7 +123,7 @@ public class MySql_UsuarioDao extends MySQLDaoFactory implements UsuarioDao {
 		try {
 			Connection con = MySQLDaoFactory.obtenerConexion();
 			Statement stmt = con.createStatement();
-			String sql = "delete from usuario where id_usuario=" + id_usuario;
+			String sql = "delete from Usuario where id_usuario=" + id_usuario;
 			int filas = stmt.executeUpdate(sql);
 			if (filas == 1) {
 				flag = true;
@@ -168,12 +168,11 @@ public class MySql_UsuarioDao extends MySQLDaoFactory implements UsuarioDao {
 		try {
 			Connection con = MySQLDaoFactory.obtenerConexion();
 			Statement stmt = con.createStatement();
-			String sql = "select * from usuario " + " where usuario= '"
+			String sql = "select * from Usuario " + "where correo= '"
 					+ usuario.getCorreo() + "' " + " and clave = '"
 					+ usuario.getClave() + "' ";
-
 			ResultSet rs = stmt.executeQuery(sql);
-
+			
 			if (rs.next()) {
 				// Si entro a este bloque significa que el usuario
 				// tanto su Usuario y Contraseña son las correctas
@@ -195,7 +194,6 @@ public class MySql_UsuarioDao extends MySQLDaoFactory implements UsuarioDao {
 
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			System.out.print(e.getMessage());
 		}
 
