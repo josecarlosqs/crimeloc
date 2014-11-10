@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import beans.UsuarioBean;
 import dao.interfaces.UsuarioDao;
 import daofactory.DaoFactory;
+import org.apache.commons.codec.digest.DigestUtils; 
 
 /**
  * Servlet implementation class RegistrarCliente
@@ -53,7 +54,10 @@ public class RegistrarUsuario extends HttpServlet {
 
 				UsuarioBean a = new UsuarioBean();
 				a.setNickname(nickname);
-				a.setClave(clave);
+				//System.out.print();
+				a.setClave(DigestUtils.md5Hex(clave));
+				System.out.print(DigestUtils.md5Hex(clave));
+				//a.setClave(clave);
 				a.setCorreo(correo);
 				a.setTipousuario(tipousuario);
 				a.setEstado(estado);

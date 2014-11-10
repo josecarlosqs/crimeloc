@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
-
-import beans.IncidenteBean;
 import beans.Tipo_IncidenteBean;
 import dao.interfaces.TipoIncidenteDao;
 import daofactory.MySQLDaoFactory;

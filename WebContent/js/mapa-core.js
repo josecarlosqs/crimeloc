@@ -1,14 +1,15 @@
 //Variables iniciales
-var posLima = [-12.030202192152053,-77.03473452148432];
+var posLima = [-12.0609495,-77.0481619];
+
+var map;
 
 function cargarMapa(mapa) {
 var parametrosMapa = {
  center: new google.maps.LatLng(posLima[0], posLima[1]),
- zoom: 16,
+ zoom: 13,
  mapTypeId: google.maps.MapTypeId.ROADMAP
 };
-
-var map = new google.maps.Map(document.getElementById("divMapaReporte"),parametrosMapa);
+map = new google.maps.Map(document.getElementById("divMapaReporte"),parametrosMapa)
 mapa.css({'background-image':'none'});
 }
 

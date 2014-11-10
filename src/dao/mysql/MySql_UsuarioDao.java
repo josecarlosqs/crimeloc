@@ -3,10 +3,10 @@ package dao.mysql;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
 import beans.UsuarioBean;
 import dao.interfaces.UsuarioDao;
 import daofactory.MySQLDaoFactory;
+import org.apache.commons.codec.digest.DigestUtils; 
 
 public class MySql_UsuarioDao extends MySQLDaoFactory implements UsuarioDao {
 
@@ -30,7 +30,8 @@ public class MySql_UsuarioDao extends MySQLDaoFactory implements UsuarioDao {
 					+ "'"
 					+ usuario.getTipousuario()
 					+ "',"
-					+ usuario.getEstado() +")";
+					+ usuario.getEstado()
+					+ ")";
 			int filas = stmt.executeUpdate(sql);
 			if (filas == 1) {
 				// Se pudo agregar el nuevo Usuario
@@ -55,7 +56,7 @@ public class MySql_UsuarioDao extends MySQLDaoFactory implements UsuarioDao {
 			Statement stmt = con.createStatement();
 			String sql = "select * from Usuario " + " where nickname= '"
 					+ usuario.getNickname() + "' " + " and clave = '"
-					+ usuario.getClave() + "' ";
+					+ DigestUtils.md5Hex(usuario.getClave()) + "' ";
 
 			ResultSet rs = stmt.executeQuery(sql);
 
@@ -170,9 +171,9 @@ public class MySql_UsuarioDao extends MySQLDaoFactory implements UsuarioDao {
 			Statement stmt = con.createStatement();
 			String sql = "select * from Usuario " + "where correo= '"
 					+ usuario.getCorreo() + "' " + " and clave = '"
-					+ usuario.getClave() + "' ";
+					+ DigestUtils.md5Hex(usuario.getClave()) + "' ";
 			ResultSet rs = stmt.executeQuery(sql);
-			
+
 			if (rs.next()) {
 				// Si entro a este bloque significa que el usuario
 				// tanto su Usuario y Contraseña son las correctas

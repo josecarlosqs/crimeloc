@@ -75,10 +75,10 @@ public class MySql_IncidenteDao extends MySQLDaoFactory implements IncidenteDao 
 				incidente = new IncidenteBean();
 				incidente.setDescripcion(rs.getString("descripcion"));
 				incidente.setId_incidente(rs.getInt("id_incidente"));
-				incidente.setId_tipo_incidente(rs.getInt("tipo_incidente"));
+				incidente.setId_tipo_incidente(rs.getInt("id_tipo_incidente"));
 				incidente.setId_usuario(rs.getInt("id_usuario"));
 				incidente.setTimestamp(rs.getDate("timestamp"));
-				incidente.setUb_latitud(rs.getString("latitud"));
+				incidente.setUb_latitud(rs.getString("ub_latitud"));
 				incidente.setUb_longitud(rs.getString("ub_longitud"));
 
 				incidentes.add(incidente);

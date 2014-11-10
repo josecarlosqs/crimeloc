@@ -2,3 +2,6 @@
 # www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
 
 User-agent: *
+
+
+/*{"num":<%=incidentes.get(i).getId_incidente()%>,"tipo":<%=incidentes.get(i).getId_tipo_incidente()%>,"lat":<%=incidentes.get(i).getUb_latitud()%>,"long":<%=incidentes.get(i).getUb_longitud()%>,"tstamp":<%=incidentes.get(i).getTimestamp()%>},*/

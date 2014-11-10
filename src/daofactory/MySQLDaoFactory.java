@@ -16,8 +16,8 @@ public class MySQLDaoFactory extends DaoFactory {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/crimeloc_db";
-			con = DriverManager.getConnection(url, "root", "root");
+			String url = "jdbc:mysql://104.131.171.224:3306/crimeloc_db";
+			con = DriverManager.getConnection(url, "usuario", "passwrd");
 
 		} catch (Exception e) {
 			// TODO: handle exception

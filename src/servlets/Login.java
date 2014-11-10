@@ -1,3 +1,4 @@
+
 package servlets;
 
 import java.io.IOException;
@@ -33,11 +34,11 @@ public class Login extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		HttpSession sesiones = request.getSession();
+		HttpServletResponse response) throws ServletException, IOException {
+		/*HttpSession sesiones = request.getSession();
 		sesiones.removeAttribute("id_usuario");
 		sesiones.removeAttribute("nickname");
-		sesiones.invalidate();
+		sesiones.invalidate();*/
 		response.sendRedirect("index.jsp");
 
 	}
@@ -48,7 +49,6 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
 		try {
 
 			UsuarioBean usuario = new UsuarioBean();
@@ -89,7 +89,7 @@ public class Login extends HttpServlet {
 				sesiones.setAttribute("nickname", usuario2.getNickname());
 				sesiones.setAttribute("usuario", usuario2.getNickname());
 
-				getServletContext().getRequestDispatcher("/logueado.jsp")
+				getServletContext().getRequestDispatcher("/index.jsp")
 						.forward(request, response);
 
 			} else {
